@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Encontros de Carros - GTA V Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eaeaea;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .light-mode {
+            background-color: #eaeaea;
+            color: #333;
+        }
+        .dark-mode {
+            background-color: #181818;
+            color: #f4f4f4;
+        }
+        header {
+            position: relative;
+            padding: 2rem 0 1rem;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('imagens/header-bg.jpg') no-repeat center center;
+            background-size: cover;
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        header::before {
+            content: '';
+            background: url('imagens/logocmd.png') no-repeat center center;
+            background-size: 200px 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 2.5rem;
+            margin: 0;
+            color: #fff;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        nav {
+            margin: 1rem 0;
+            position: relative;
+            z-index: 2;
+        }
+        nav button, nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        nav a:hover, nav button:hover {
+            color: #66cdaa;
+        }
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .dark-mode section {
+            background: #222;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #66cdaa;
+            padding-bottom: 10px;
+        }
+        .dark-mode h2 {
+            color: #fff;
+        }
+        .post {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            overflow: hidden;
+            padding: 10px;
+        }
+        .dark-mode .post {
+            background: #333;
+            border: 1px solid #444;
+        }
+        .post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+        .post img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 2px solid #66cdaa;
+            cursor: pointer;
+        }
+        .interaction-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: #66cdaa;
+        }
+        .event-list {
+            list-style: none;
+            padding: 0;
+        }
+        .event-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        .dark-mode .event-item {
+            background: #333;
+            border-color: #444;
+        }
+        #game-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 2px solid #ddd;
+            margin: 10px auto;
+            background: #f9f9f9;
+        }
+        .target {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: red;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        .score-display, .timer-display {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body class="light-mode">
+
+<header>
+    <h1>777 Brasil New Cars</h1>
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#postagens">Postagens Recentes</a>
+        <a href="#jogo">Jogo de Tiro</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#ranking">Ranking</a>
+        <a href="#contato">Contato</a>
+        <button onclick="toggleDarkMode()">Modo Escuro</button>
+    </nav>
+</header>
+
+<section id="sobre">
+    <h2>Sobre</h2>
+    <p>Bem-vindo ao comando focado em encontros de carros no GTA V Online! Aqui, você encontrará ranking de vencedores, imagens dos nossos encontros, dicas e tudo relacionado a esse mundo incrível.</p>
+</section>
+
+<section id="galeria">
+    <h2>Galeria</h2>
+    <p>Confira algumas imagens dos nossos encontros de carros:</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px;">
+        <div>
+            <img src="imagem1.jpg" alt="Encontro de Carros 1" onclick="openModal('imagem1.jpg')">
+            <div class="interaction-buttons">
+                <div>
+                    <span class="like-count" id="imagem1-likes">0</span>
+                    <button class="like-button" onclick="toggleLike('imagem1', this)"><i class="fas fa-thumbs-up"></i></button>
+                    <span class="favorite-count" id="imagem1-favorites">0</span>
+                    <button class="favorite-button" onclick="toggleFavorite('imagem1', this)"><i class="fas fa-star"></i></button>
+                </div>
+                <button class="comment-button" onclick="commentImage('imagem1')"><i class="fas fa-comment"></i></button>
+            </div>
+        </div>
+        <div>
+            <img src="imagem2.jpg" alt="Encontro de Carros 2" onclick="openModal('imagem2.jpg')">
+            <div class="interaction-buttons">
+                <div>
+                    <span class="like-count" id="imagem2-likes">0</span>
+                    <button class="like-button" onclick="toggleLike('imagem2', this)"><i class="fas fa-thumbs-up"></i></button>
+                    <span class="favorite-count" id="imagem2-favorites">0</span>
+                    <button class="favorite-button" onclick="toggleFavorite('imagem2', this)"><i class="fas fa-star"></i></button>
+                </div>
+                <button class="comment-button" onclick="commentImage('imagem2')"><i class="fas fa-comment"></i></button>
+            </div>
+        </div>
+        <div>
+            <img src="imagem3.jpg" alt="Encontro de Carros 3" onclick="openModal('imagem3.jpg')">
+            <div class="interaction-buttons">
+                <div>
+                    <span class="like-count" id="imagem3-likes">0</span>
+                    <button class="like-button" onclick="toggleLike('imagem3', this)"><i class="fas fa-thumbs-up"></i></button>
+                    <span class="favorite-count" id="imagem3-favorites">0</span>
+                    <button class="favorite-button" onclick="toggleFavorite('imagem3', this)"><i class="fas fa-star"></i></button>
+                </div>
+                <button class="comment-button" onclick="commentImage('imagem3')"><i class="fas fa-comment"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="postagens">
+    <h2>Postagens Recentes</h2>
+    <div class="post">
+        <h3>Encontro na Praia</h3>
+        <p>Um encontro incrível na praia com os melhores carros do jogo!</p>
+    </div>
+    <div class="post">
+        <h3>Desafio Noturno</h3>
+        <p>Prepare-se para uma corrida noturna cheia de emoção!</p>
+    </div>
+    <div class="post">
+        <h3>Encontro de Carros Clássicos</h3>
+        <p>Os clássicos sempre têm um lugar especial nos nossos corações.</p>
+    </div>
+</section>
+
+<section id="jogo">
+    <h2>Jogo de Tiro</h2>
+    <div id="game-container">
+        <div class="score-display" id="score">Pontos: 0</div>
+        <div class="timer-display" id="timer">Tempo: 30</div>
+    </div>
+</section>
+
+<section id="eventos">
+    <h2>Eventos</h2>
+    <ul class="event-list">
+        <li class="event-item">Encontro Mensal - 15 de Outubro</li>
+        <li class="event-item">Competição de Drift - 22 de Outubro</li>
+        <li class="event-item">Rali Noturno - 29 de Outubro</li>
+    </ul>
+</section>
+
+<section id="ranking">
+    <h2>Ranking dos Vencedores</h2>
+    <ol>
+        <li>Jogador1 - 500 pontos</li>
+        <li>Jogador2 - 450 pontos</li>
+        <li>Jogador3 - 400 pontos</li>
+    </ol>
+</section>
+
+<section id="contato">
+    <h2>Contato</h2>
+    <p>Entre em contato conosco através do email: contato@gtav.com</p>
+</section>
+
+<script>
+    let score = 0;
+    let timeLeft = 30;
+    let gameInterval;
+    let targetInterval;
+    const gameContainer = document.getElementById('game-container');
+
+    function startGame() {
+        score = 0;
+        timeLeft = 30;
+        document.getElementById('score').innerText = 'Pontos: ' + score;
+        document.getElementById('timer').innerText = 'Tempo: ' + timeLeft;
+
+        gameInterval = setInterval(updateTimer, 1000);
+        targetInterval = setInterval(createTarget, 1000);
+    }
+
+    function updateTimer() {
+        timeLeft--;
+        document.getElementById('timer').innerText = 'Tempo: ' + timeLeft;
+        if (timeLeft <= 0) {
+            endGame();
+        }
+    }
+
+    function endGame() {
+        clearInterval(gameInterval);
+        clearInterval(targetInterval);
+        alert("Fim de jogo! Você fez " + score + " pontos.");
+        document.getElementById('score').innerText = 'Pontos: 0';
+        document.getElementById('timer').innerText = 'Tempo: 30';
+    }
+
+    function createTarget() {
+        const target = document.createElement('div');
+        target.className = 'target';
+        target.style.top = Math.random() * (gameContainer.clientHeight - 40) + 'px';
+        target.style.left = Math.random() * (gameContainer.clientWidth - 40) + 'px';
+        target.onclick = () => shoot(target);
+        gameContainer.appendChild(target);
+
+        setTimeout(() => {
+            if (target) {
+                target.remove();
+            }
+        }, 2000);
+    }
+
+    function shoot(target) {
+        score++;
+        document.getElementById('score').innerText = 'Pontos: ' + score;
+        target.remove();
+    }
+
+    document.getElementById('game-container').addEventListener('click', (event) => {
+        if (event.target.classList.contains('target')) {
+            shoot(event.target);
+        }
+    });
+
+    startGame();
+
+    function toggleDarkMode() {
+        const body = document.body;
+        body.classList.toggle('dark-mode');
+        const isDark = body.classList.contains('dark-mode');
+        const button = document.querySelector('nav button');
+        button.innerText = isDark ? 'Modo Claro' : 'Modo Escuro';
+    }
+
+    function openModal(imageSrc) {
+        const modal = document.createElement('div');
+        modal.style.position = 'fixed';
+        modal.style.top = 0;
+        modal.style.left = 0;
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        modal.style.display = 'flex';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+        modal.onclick = () => modal.remove();
+        const img = document.createElement('img');
+        img.src = imageSrc;
+        img.style.maxWidth = '90%';
+        img.style.maxHeight = '90%';
+        modal.appendChild(img);
+        document.body.appendChild(modal);
+    }
+
+    function toggleLike(imageId, button) {
+        const likesElement = document.getElementById(imageId + '-likes');
+        let likes = parseInt(likesElement.innerText);
+        if (button.classList.toggle('liked')) {
+            likes++;
+        } else {
+            likes--;
+        }
+        likesElement.innerText = likes;
+    }
+
+    function toggleFavorite(imageId, button) {
+        const favoritesElement = document.getElementById(imageId + '-favorites');
+        let favorites = parseInt(favoritesElement.innerText);
+        if (button.classList.toggle('favorited')) {
+            favorites++;
+        } else {
+            favorites--;
+        }
+        favoritesElement.innerText = favorites;
+    }
+
+    function commentImage(imageId) {
+        const comment = prompt("Digite seu comentário:");
+        if (comment) {
+            alert("Comentário para " + imageId + ": " + comment);
+        }
+    }
+</script>
+
+</body>
+</html>
